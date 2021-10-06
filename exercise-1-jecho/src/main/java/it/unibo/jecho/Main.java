@@ -25,10 +25,13 @@ public class Main {
         var parser = new DefaultParser();
 
         try {
+
             var opts = parser.parse(options, args);
+
             var mode = opts.hasOption("uppercase") ? Mode.UPPERCASE
                     : opts.hasOption("lowercase") ? Mode.LOWERCASE 
                         : Mode.NORMAL;
+
             
             var reader = new BufferedReader(new InputStreamReader(System.in));
             reader.lines().forEach(line -> printLine(line, mode));            
